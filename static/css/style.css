@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+.text-shadow {
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.logo-padding {
+    padding-left: 15px;
+}
