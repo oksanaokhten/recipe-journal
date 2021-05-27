@@ -2,6 +2,7 @@
 
 body {
     font-family: 'Lato', sans-serif;
+    background-color: #fafafa;
 }
 
 .text-shadow {
@@ -14,4 +15,7 @@ body {
 
 .flashes h4 {
     line-height: 1.5;
+}
+.height {
+    height: 400px;
 }

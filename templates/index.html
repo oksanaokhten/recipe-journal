@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="row height">
+        <div class="col col s12 m8 offset-m2">
+            <div class="card">
+                <div class="card-image">
+                    <img src="static/images/happy.jpg">
+                    <span class="card-title">
+                        Eat what makes you happy
+                    </span>
+                </div>
+                <div class="card-action">
+                    <a href="{{ url_for('get_recipes') }}">Recipes</a>
+                </div>
+            </div>
+        </div>
+    </div>
+         
+
+{% endblock %}
