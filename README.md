@@ -17,16 +17,16 @@
         
 * ### **Wireframes**
     * **Home Page** 
-    ![Recipe Journal](images/home-no-user.png)
+    ![Recipe Journal](static/images/home-no-user.png)
 
     * **All Recipes Page** 
-    ![Recipe Journal](images/all-recipes-user.png)
+    ![Recipe Journal](static/images/all-recipes-user.png)
 
     * **Add Recipe Page** 
-    ![Recipe Journal](images/add-recipe-page.png)
+    ![Recipe Journal](static/images/add-recipe-page.png)
 
     * **Recipe Detail Page** 
-    ![Recipe Journal](images/recipe-detail-page.png)
+    ![Recipe Journal](static/images/recipe-detail-page.png)
 ## **Features**
 * **Responsive on all device sizes**
 * **Interactive elements**
