@@ -4,7 +4,7 @@
     {% for recipe in recipes %}
         {{ recipe.recipe_name }}<br>
         {{ recipe.category_name }}<br>
-        {{ recipe.recipe_description }}<br>
+        {{ recipe.recipe_description }}<br>        
         {{ recipe.ingredients }}<br>
         {{ recipe.method_steps }}<br>
         {{ recipe.cooking_time }}<br>
@@ -13,20 +13,23 @@
     {% endfor %}
 
     <div class="col s12 m7">
-        <h4 class="header" >Recipe Name</h4>
+        {% for recipe in recipes %}
+        <h3 class="header">{{ recipe.recipe_name }}</h3>
         <div class="card horizontal">
             <div class="card-image">
-                <img src="#">
+                <img src="{{ recipe.image_url }}">
             </div>
             <div class="card-stacked">
                 <div class="card-content">
-                    <p>Content</p><br>
-                    <p>Content</p><br>
-                    <p>Content</p><br>
-                    <p>Content</p><br>
+                    <p>{{ recipe.category_name }}</p><br>
+                    <p>{{ recipe.recipe_description }}</p><br>
+                    <p>Cooking Time: {{ recipe.cooking_time }} min</p><br>
+                    <p>Tips: {{ recipe.kitchen_tools }}</p><br>
+                    <p>Added by</p><br>
                 </div>
             </div>
         </div>
+        {% endfor %}
     </div>
 
 {% endblock %}
