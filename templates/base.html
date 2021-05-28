@@ -69,6 +69,34 @@
         {% endblock %}
     </main>
 
+    <footer class="page-footer teal darken-1 text-shadow">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Sharing Recipes...</h5>
+                    <p class="grey-text text-lighten-4">invites your friends and family to share back with you</p>
+                    <p class="grey-text text-lighten-4">connects you with people</p>
+                    <p class="grey-text text-lighten-4">Sharing is good for everyone. More ideas, more recipes, and more fun.</p>
+                    
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="{{ url_for('index') }}">Home</a></li>
+                        <li><a class="grey-text text-lighten-3" href="{{ url_for('get_recipes') }}">All Recipes</a></li>
+                        <li><a class="grey-text text-lighten-3" href="{{ url_for('login') }}">Log In</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2021 Copyright Text
+                <a class="grey-text text-lighten-4 right" href="{{ url_for('register') }}">Register You Account</a>
+            </div>
+        </div>
+    </footer>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
