@@ -3,13 +3,60 @@
 
     <h3 class="teal-text text-darken-4 center-align">Add Recipe</h3>
 
-    <div class="row">
+    <div class="row card-panel">
         <form class="col s12" method="POST" action="">
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-user-circle prefix teal-text text-darken-4"></i>
-                    <input id="icon_prefix" type="text" class="validate">
-                    <label for="icon_prefix">First Name</label>
+                    <i class="fas fa-pencil-alt prefix teal-text text-darken-4"></i>
+                    <input id="recipe_name" name="recipe_name" minlength="5" maxlength="100"
+                        type="text" class="validate" required>
+                    <label for="recipe_name">Recipe Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-align-left prefix teal-text text-darken-4"></i>
+                    <textarea id="recipe_description" name="recipe_description" minlength="5"
+                    maxlength="300" class="materialize-textarea validate" required></textarea>
+                    <label for="recipe_description">Recipe Description</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-list-ul prefix teal-text text-darken-4"></i>
+                    <textarea id="ingredients" name="ingredients" minlength="5"
+                    maxlength="400" class="materialize-textarea validate" required></textarea>
+                    <label for="ingredients">List your ingredients separated by semicolon</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-list-ol prefix teal-text text-darken-4"></i>
+                    <textarea id="method_steps" name="method_steps" minlength="5"
+                    maxlength="800" class="materialize-textarea validate" required></textarea>
+                    <label for="method_steps">List your method steps separated by semicolon</label>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="input-field range-field col s12">
+                    <i class="fas fa-clock prefix teal-text text-darken-4"></i>
+                    <input type="range" id="cooking_time" name="cooking_time" min="0" max="240" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-image prefix teal-text text-darken-4"></i>
+                    <textarea id="image_url" name="image_url" minlength="5"
+                    class="materialize-textarea validate" required></textarea>
+                    <label for="image_url">Recipe Image (provide web address)</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-cogs prefix teal-text text-darken-4"></i>
+                    <textarea id="kitchen_tools" name="kitchen_tools" minlength="5"
+                    maxlength="300" class="materialize-textarea validate" required></textarea>
+                    <label for="kitchen_tools">Kitchen Tools</label>
                 </div>
             </div>
         </form>
