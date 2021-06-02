@@ -4,7 +4,8 @@
     <h3 class="teal-text text-darken-4 center-align">Add Recipe</h3>
 
     <div class="row card-panel">
-        <form class="col s12" method="POST" action="">
+        <form class="col s12" method="POST" action="{{ url_for('add_recipe') }}">
+            <!-- Category Selection-->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-folder-open prefix teal-text text-darken-4"></i>
@@ -17,6 +18,7 @@
                     <label for="category_name">Recipe Category</label>
                 </div>
             </div>
+            <!-- Recipe Name-->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-pencil-alt prefix teal-text text-darken-4"></i>
@@ -25,6 +27,7 @@
                     <label for="recipe_name">Recipe Name</label>
                 </div>
             </div>
+            <!-- Recipe Description -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-align-left prefix teal-text text-darken-4"></i>
@@ -33,28 +36,33 @@
                     <label for="recipe_description">Recipe Description</label>
                 </div>
             </div>
+            <!-- Ingredients -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-list-ul prefix teal-text text-darken-4"></i>
                     <textarea id="ingredients" name="ingredients" minlength="5"
-                        maxlength="400" class="materialize-textarea validate" required></textarea>
-                    <label for="ingredients">List your ingredients separated by semicolon</label>
+                        maxlength="500" class="materialize-textarea validate" required></textarea>
+                    <label for="ingredients">List your ingredients one in a line</label>
                 </div>
             </div>
+            <!-- Method Steps -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-list-ol prefix teal-text text-darken-4"></i>
                     <textarea id="method_steps" name="method_steps" minlength="5"
-                        maxlength="800" class="materialize-textarea validate" required></textarea>
-                    <label for="method_steps">List your method steps separated by semicolon</label>
+                        class="materialize-textarea validate" required></textarea>
+                    <label for="method_steps">List your method steps one in a line</label>
                 </div>
             </div>
-            <div class="row ">
-                <div class="input-field range-field col s12">
+            <!-- Cooking Time -->
+            <div class="row">
+                <div class="input-field col s12">
                     <i class="fas fa-clock prefix teal-text text-darken-4"></i>
-                    <input type="range" id="cooking_time" name="cooking_time" min="0" max="240" />
+                    <input id="cooking_time" name="cooking_time" type="number" class="validate" required>
+                    <label for="cooking_time">Cooking time in minutes</label>
                 </div>
             </div>
+            <!-- Recipe Image -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-image prefix teal-text text-darken-4"></i>
@@ -63,12 +71,21 @@
                     <label for="image_url">Recipe Image (provide web address)</label>
                 </div>
             </div>
+            <!-- Kitchen Tools -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-cogs prefix teal-text text-darken-4"></i>
                     <textarea id="kitchen_tools" name="kitchen_tools" minlength="5"
                         maxlength="300" class="materialize-textarea validate" required></textarea>
                     <label for="kitchen_tools">Kitchen Tools</label>
+                </div>
+            </div>
+            <!-- Submit Button -->
+            <div class="row">
+                <div class="col s12 center-align">
+                    <button type="submit" class="btn-large teal darken-1 text-shadow">
+                        Add Recipe <i class="fas fa-plus-square right"></i>
+                    </button>
                 </div>
             </div>
         </form>
