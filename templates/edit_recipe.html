@@ -10,9 +10,13 @@
                 <div class="input-field col s12">
                     <i class="fas fa-folder-open prefix teal-text text-darken-4"></i>
                     <select id="category_name" name="category_name" class="validate" required>
-                        <option value="" disabled selected>Choose Category</option>
+                        <option value="" disabled>Choose Category</option>
                         {% for food_category in food_categories %}
-                            <option value="{{ food_category.category_name }}">{{ food_category.category_name }}</option>
+                            {% if food_category.category_name == recipe.category_name %}
+                                <option value="{{ food_category.category_name }}" selected>{{ food_category.category_name }}</option>
+                            {% else %}
+                                <option value="{{ food_category.category_name }}">{{ food_category.category_name }}</option>
+                            {% endif %}
                         {% endfor %}
                     </select>
                     <label for="category_name">Recipe Category</label>
@@ -23,7 +27,7 @@
                 <div class="input-field col s12">
                     <i class="fas fa-pencil-alt prefix teal-text text-darken-4"></i>
                     <input id="recipe_name" name="recipe_name" minlength="5" maxlength="100"
-                        type="text" class="validate" required>
+                        value="{{ recipe.recipe_name }}" type="text" class="validate" required>
                     <label for="recipe_name">Recipe Name</label>
                 </div>
             </div>
@@ -32,7 +36,9 @@
                 <div class="input-field col s12">
                     <i class="fas fa-align-left prefix teal-text text-darken-4"></i>
                     <textarea id="recipe_description" name="recipe_description" minlength="5"
-                        maxlength="300" class="materialize-textarea validate" required></textarea>
+                        maxlength="300" class="materialize-textarea validate" required>
+                        {{- recipe.recipe_description -}}
+                    </textarea>
                     <label for="recipe_description">Recipe Description</label>
                 </div>
             </div>
@@ -41,7 +47,11 @@
                 <div class="input-field col s12">
                     <i class="fas fa-list-ul prefix teal-text text-darken-4"></i>
                     <textarea id="ingredients" name="ingredients" minlength="5"
-                        maxlength="500" class="materialize-textarea validate" required></textarea>
+                        maxlength="500" class="materialize-textarea validate" required>
+                        {% for ing in recipe.ingredients %}
+                            {{- ing }}
+                        {% endfor %}
+                    </textarea>
                     <label for="ingredients">List your ingredients one in a line</label>
                 </div>
             </div>
@@ -50,7 +60,11 @@
                 <div class="input-field col s12">
                     <i class="fas fa-list-ol prefix teal-text text-darken-4"></i>
                     <textarea id="method_steps" name="method_steps" minlength="5"
-                        class="materialize-textarea validate" required></textarea>
+                        class="materialize-textarea validate" required>
+                        {% for step in recipe.method_steps %}
+                            {{- step }}
+                        {% endfor %}
+                    </textarea>
                     <label for="method_steps">List your method steps one in a line</label>
                 </div>
             </div>
@@ -58,7 +72,8 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-clock prefix teal-text text-darken-4"></i>
-                    <input id="cooking_time" name="cooking_time" type="number" class="validate" required>
+                    <input id="cooking_time" name="cooking_time" type="number"
+                        value="{{ recipe.cooking_time }}" class="validate" required>
                     <label for="cooking_time">Cooking time in minutes</label>
                 </div>
             </div>
@@ -67,7 +82,9 @@
                 <div class="input-field col s12">
                     <i class="fas fa-image prefix teal-text text-darken-4"></i>
                     <textarea id="image_url" name="image_url" minlength="5"
-                        class="materialize-textarea validate" required></textarea>
+                        class="materialize-textarea validate" required>
+                        {{- recipe.image_url -}}
+                    </textarea>
                     <label for="image_url">Recipe Image (provide web address)</label>
                 </div>
             </div>
@@ -76,13 +93,19 @@
                 <div class="input-field col s12">
                     <i class="fas fa-cogs prefix teal-text text-darken-4"></i>
                     <textarea id="kitchen_tools" name="kitchen_tools" minlength="5"
-                        maxlength="300" class="materialize-textarea validate" required></textarea>
+                        maxlength="300" class="materialize-textarea validate" required>
+                        {{- recipe.kitchen_tools -}}
+                    </textarea>
                     <label for="kitchen_tools">Kitchen Tools</label>
                 </div>
             </div>
             <!-- Submit Button -->
             <div class="row">
                 <div class="col s12 center-align">
+                    <!-- Cancel Button -->
+                    <a href="{{ url_for('get_recipes') }}" class="btn-large deep-orange darken-2 text-shadow">
+                        Cancel <i class="fas fa-times-circle right"></i>
+                    </a>
                     <button type="submit" class="btn-large teal darken-1 text-shadow">
                         Edit Recipe <i class="fas fa-edit right"></i>
                     </button>
