@@ -136,6 +136,24 @@ def add_recipe():
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
+    if request.method == "POST":
+        def split_list(items):
+            list = request.form.get(items)
+            return list.splitlines()
+        submit = {
+            "category_name": request.form.get("category_name"),
+            "recipe_name": request.form.get("recipe_name"),
+            "recipe_description": request.form.get("recipe_description"),
+            "ingredients": split_list("ingredients"),
+            "method_steps": split_list("method_steps"),
+            "cooking_time": request.form.get("cooking_time"),
+            "image_url": request.form.get("image_url"),
+            "kitchen_tools": request.form.get("kitchen_tools"),
+            "created_by": session["user"]
+        }
+        mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
+        flash("Recipe Successfully Updated")
+
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     food_categories = mongo.db.food_categories.find()
     return render_template(
