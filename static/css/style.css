@@ -21,6 +21,11 @@ body {
     margin-right: 5px;
     margin-top: 35px;
 }
+
+.cursor {
+    cursor: pointer;
+}
+
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
