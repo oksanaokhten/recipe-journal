@@ -115,17 +115,29 @@ def add_recipe():
         def split_list(items):
             list = request.form.get(items)
             return list.splitlines()
-        recipe = {
-            "category_name": request.form.get("category_name"),
-            "recipe_name": request.form.get("recipe_name"),
-            "recipe_description": request.form.get("recipe_description"),
-            "ingredients": split_list("ingredients"),
-            "method_steps": split_list("method_steps"),
-            "cooking_time": request.form.get("cooking_time"),
-            "image_url": request.form.get("image_url"),
-            "kitchen_tools": request.form.get("kitchen_tools"),
-            "created_by": session["user"]
-        }
+        if session["user"] == "admin".lower():
+            recipe = {
+                "category_name": request.form.get("category_name"),
+                "recipe_name": request.form.get("recipe_name"),
+                "recipe_description": request.form.get("recipe_description"),
+                "ingredients": split_list("ingredients"),
+                "method_steps": split_list("method_steps"),
+                "cooking_time": request.form.get("cooking_time"),
+                "image_url": request.form.get("image_url"),
+                "kitchen_tools": request.form.get("kitchen_tools"),
+                "created_by": session["user"]
+            }
+        else:
+            recipe = {
+                "category_name": request.form.get("category_name"),
+                "recipe_name": request.form.get("recipe_name"),
+                "recipe_description": request.form.get("recipe_description"),
+                "ingredients": split_list("ingredients"),
+                "method_steps": split_list("method_steps"),
+                "cooking_time": request.form.get("cooking_time"),
+                "image_url": request.form.get("image_url"),
+                "created_by": session["user"]
+            }
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe Successfully Added")
         return redirect(url_for("get_recipes"))
@@ -140,17 +152,29 @@ def edit_recipe(recipe_id):
         def split_list(items):
             list = request.form.get(items)
             return list.splitlines()
-        submit = {
-            "category_name": request.form.get("category_name"),
-            "recipe_name": request.form.get("recipe_name"),
-            "recipe_description": request.form.get("recipe_description"),
-            "ingredients": split_list("ingredients"),
-            "method_steps": split_list("method_steps"),
-            "cooking_time": request.form.get("cooking_time"),
-            "image_url": request.form.get("image_url"),
-            "kitchen_tools": request.form.get("kitchen_tools"),
-            "created_by": session["user"]
-        }
+        if session["user"] == "admin".lower():
+            submit = {
+                "category_name": request.form.get("category_name"),
+                "recipe_name": request.form.get("recipe_name"),
+                "recipe_description": request.form.get("recipe_description"),
+                "ingredients": split_list("ingredients"),
+                "method_steps": split_list("method_steps"),
+                "cooking_time": request.form.get("cooking_time"),
+                "image_url": request.form.get("image_url"),
+                "kitchen_tools": request.form.get("kitchen_tools"),
+                "created_by": session["user"]
+            }
+        else:
+            submit = {
+                "category_name": request.form.get("category_name"),
+                "recipe_name": request.form.get("recipe_name"),
+                "recipe_description": request.form.get("recipe_description"),
+                "ingredients": split_list("ingredients"),
+                "method_steps": split_list("method_steps"),
+                "cooking_time": request.form.get("cooking_time"),
+                "image_url": request.form.get("image_url"),
+                "created_by": session["user"]
+            }
         mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
         flash("Recipe Successfully Updated")
 
@@ -163,7 +187,7 @@ def edit_recipe(recipe_id):
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
-    flash("Task Successfully Deleted")
+    flash("Recipe Successfully Deleted")
     return redirect(url_for("get_recipes"))
 
 
