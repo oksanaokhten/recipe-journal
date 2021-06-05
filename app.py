@@ -115,6 +115,11 @@ def add_recipe():
         def split_list(items):
             list = request.form.get(items)
             return list.splitlines()
+
+        def cook_time(item):
+            time = request.form.get(item)
+            return int(time)
+
         if session["user"] == "admin".lower():
             recipe = {
                 "category_name": request.form.get("category_name"),
@@ -122,7 +127,7 @@ def add_recipe():
                 "recipe_description": request.form.get("recipe_description"),
                 "ingredients": split_list("ingredients"),
                 "method_steps": split_list("method_steps"),
-                "cooking_time": request.form.get("cooking_time"),
+                "cooking_time": cook_time("cooking_time"),
                 "image_url": request.form.get("image_url"),
                 "kitchen_tools": request.form.get("kitchen_tools"),
                 "created_by": session["user"]
@@ -134,7 +139,7 @@ def add_recipe():
                 "recipe_description": request.form.get("recipe_description"),
                 "ingredients": split_list("ingredients"),
                 "method_steps": split_list("method_steps"),
-                "cooking_time": request.form.get("cooking_time"),
+                "cooking_time": cook_time("cooking_time"),
                 "image_url": request.form.get("image_url"),
                 "created_by": session["user"]
             }
@@ -152,6 +157,11 @@ def edit_recipe(recipe_id):
         def split_list(items):
             list = request.form.get(items)
             return list.splitlines()
+
+        def cook_time(item):
+            time = request.form.get(item)
+            return int(time)
+
         if session["user"] == "admin".lower():
             submit = {
                 "category_name": request.form.get("category_name"),
@@ -159,7 +169,7 @@ def edit_recipe(recipe_id):
                 "recipe_description": request.form.get("recipe_description"),
                 "ingredients": split_list("ingredients"),
                 "method_steps": split_list("method_steps"),
-                "cooking_time": request.form.get("cooking_time"),
+                "cooking_time": cook_time("cooking_time"),
                 "image_url": request.form.get("image_url"),
                 "kitchen_tools": request.form.get("kitchen_tools"),
                 "created_by": session["user"]
@@ -171,7 +181,7 @@ def edit_recipe(recipe_id):
                 "recipe_description": request.form.get("recipe_description"),
                 "ingredients": split_list("ingredients"),
                 "method_steps": split_list("method_steps"),
-                "cooking_time": request.form.get("cooking_time"),
+                "cooking_time": cook_time("cooking_time"),
                 "image_url": request.form.get("image_url"),
                 "created_by": session["user"]
             }
