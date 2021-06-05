@@ -26,6 +26,10 @@ body {
     cursor: pointer;
 }
 
+.page {
+    min-height: calc(100vh - 320px);
+}
+
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
