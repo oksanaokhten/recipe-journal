@@ -16,6 +16,45 @@
             </div>
         </div>
     </div>
-         
+
+    <h3 class="teal-text text-darken-4 center-align">Resently added recipes</h3>
+
+    <div class="row">
+        {% for recipe in recipes[-4:-1] %}
+            <div class="col s12 m4">  
+                <div class="card medium">
+                    <div class="card-image">
+                        <img src="{{ recipe.image_url }}" alt="{{ recipe.recipe_name }}"> 
+                    </div>
+                    <div class="card-content teal darken-1 white-text text-shadow">
+                        <span class="card-title"><a class="white-text cursor" href="{{ url_for('get_recipe', recipe_id=recipe._id) }}">{{ recipe.recipe_name }}</a></span>
+                        <p>Cook: {{ recipe.cooking_time }} min</p><br>
+                        <p><em>by: {{ recipe.created_by }}</em></p><br>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>     
+
+    <h3 class="teal-text text-darken-4 center-align">Quick and under 15 minutes recipes</h3>
+
+    <div class="row">
+        {% for recipe in recipes %}
+            {% if recipe.cooking_time <= 15 %}
+                <div class="col s12 m4">  
+                    <div class="card medium">
+                        <div class="card-image">
+                            <img src="{{ recipe.image_url }}" alt="{{ recipe.recipe_name }}"> 
+                        </div>
+                        <div class="card-content teal darken-1 white-text text-shadow">
+                            <span class="card-title"><a class="white-text cursor" href="{{ url_for('get_recipe', recipe_id=recipe._id) }}">{{ recipe.recipe_name }}</a></span>
+                            <p>Cook: {{ recipe.cooking_time }} min</p><br>
+                            <p><em>by: {{ recipe.created_by }}</em></p><br>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>     
 
 {% endblock %}
