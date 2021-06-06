@@ -10,10 +10,6 @@ body {
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
-.logo-padding {
-    padding-left: 15px;
-}
-
 /* 2 following code was taken from task-manager tutorial and changed for site needs */
 .flashes h4 {
     line-height: 1.5;

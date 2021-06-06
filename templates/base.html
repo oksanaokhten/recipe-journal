@@ -18,9 +18,9 @@
     <header>
         <!-- top navbar-->
         <nav class="nav-extended text-shadow teal darken-1">
-            <div class="nav-wrapper logo-padding">
-                <a href="" class="brand-logo">Recipe Journal</a>
-                <a href="{{ url_for('index') }}" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
+            <div class="nav-wrapper">
+                <a href="{{ url_for('index') }}" class="brand-logo">Recipe Journal</a>
+                <a href="" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('index') }}">Home</a></li>
                     <li><a href="{{ url_for('get_recipes') }}">Recipes</a></li>
@@ -37,7 +37,7 @@
         </nav> 
         <!-- mobile sidenav-->
         <ul class="sidenav" id="mobile-demo">
-            <li><h4 class="center-align teal-text text-darken-4">Recipe Lournal</h4></li>
+            <li><h4 class="center-align teal-text text-darken-4">Recipe Journal</h4></li>
             <li><a href="{{ url_for('index') }}">Home</a></li>
             <li><a href="{{ url_for('get_recipes') }}">Recipes</a></li>
             {% if session.user %}
@@ -52,6 +52,8 @@
     </header>
 
     <section>
+        <!-- Code for this section was taken from Tasks Manager Tutorial
+            and changed in background colour -->
         <!-- Flash Messages-->
         {% with messages = get_flashed_messages() %}
             {% if messages %}
@@ -69,6 +71,7 @@
         {% endblock %}
     </main>
 
+    <!-- Code for footer was taken as a block from Materialize site -->
     <footer class="page-footer teal darken-1 text-shadow">
         <div class="container">
             <div class="row">
