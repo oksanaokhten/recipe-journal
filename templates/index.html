@@ -24,10 +24,16 @@
             <div class="col s12 m4">  
                 <div class="card medium">
                     <div class="card-image">
-                        <img src="{{ recipe.image_url }}" alt="{{ recipe.recipe_name }}"> 
+                        <a class="white-text cursor" href="{{ url_for('get_recipe', recipe_id=recipe._id) }}">
+                        <img src="{{ recipe.image_url }}" alt="{{ recipe.recipe_name }}">
+                        </a> 
                     </div>
                     <div class="card-content teal darken-1 white-text text-shadow">
-                        <span class="card-title"><a class="white-text cursor" href="{{ url_for('get_recipe', recipe_id=recipe._id) }}">{{ recipe.recipe_name }}</a></span>
+                        <span class="card-title">
+                            <a class="white-text cursor" href="{{ url_for('get_recipe', recipe_id=recipe._id) }}">
+                                {{ recipe.recipe_name }}
+                            </a>
+                        </span>
                         <p>Cook: {{ recipe.cooking_time }} min</p><br>
                         <p><em>by: {{ recipe.created_by }}</em></p><br>
                     </div>
@@ -44,7 +50,9 @@
                 <div class="col s12 m4">  
                     <div class="card medium">
                         <div class="card-image">
-                            <img src="{{ recipe.image_url }}" alt="{{ recipe.recipe_name }}"> 
+                            <a class="white-text cursor" href="{{ url_for('get_recipe', recipe_id=recipe._id) }}">
+                            <img src="{{ recipe.image_url }}" alt="{{ recipe.recipe_name }}">
+                            </a>
                         </div>
                         <div class="card-content teal darken-1 white-text text-shadow">
                             <span class="card-title"><a class="white-text cursor" href="{{ url_for('get_recipe', recipe_id=recipe._id) }}">{{ recipe.recipe_name }}</a></span>
