@@ -1,3 +1,4 @@
+# Code untill 19 line was taken from Tasks Manager Tutorial
 import os
 from flask import (
     Flask, flash, render_template,
@@ -24,6 +25,7 @@ def index():
     return render_template("index.html", recipes=recipes)
 
 
+# Next 3 code from Tasks Manager Tutorial, tasks changed to recipes
 @app.route("/get_recipes")
 def get_recipes():
     recipes = list(mongo.db.recipes.find())
@@ -43,6 +45,7 @@ def get_recipe(recipe_id):
     return render_template("recipe.html", recipe=recipe)
 
 
+# Next 2 code was taken from Tasks Manager Tutorial with no changes
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -97,6 +100,7 @@ def login():
     return render_template("login.html")
 
 
+# Code taken from Tasks Manager Tutorial, added recipes part
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # take the session user's username from db
@@ -111,6 +115,7 @@ def profile(username):
     return redirect(url_for("login"))
 
 
+# Code was taken from Tasks Manager Tutorial with no changes
 @app.route("/logout")
 def logout():
     # remove user from session cookies
@@ -119,6 +124,8 @@ def logout():
     return redirect(url_for("login"))
 
 
+# Next 2 code from Tasks Manager Tutorial
+# Changed for this project needs
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
     if request.method == "POST":
@@ -204,6 +211,8 @@ def edit_recipe(recipe_id):
         "edit_recipe.html", recipe=recipe, food_categories=food_categories)
 
 
+# 2 next code from Tasks Manager Tutorial
+# changed in project name and id
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
