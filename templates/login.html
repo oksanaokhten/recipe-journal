@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <section class="page">   
-        <h3 class="center-align">Log In</h3>
+    <section class="page">
+        <!-- All code was taken from task-manager tutorial -->   
+        <h3 class="center-align teal-text text-darken-4">Log In</h3>
 
         <div class="row">
             <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('login') }}">
