@@ -32,6 +32,10 @@ body {
     min-height: calc(100vh - 320px);
 }
 
+.item-list {
+    padding-left: 42px;
+}
+
 /* 4 following code was taken from w3schools */
 /* The Modal (background) */
 .modal {
