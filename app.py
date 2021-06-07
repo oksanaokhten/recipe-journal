@@ -167,22 +167,18 @@ def add_recipe():
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
     if request.method == "POST":
-        def split_list(items):
-            list = request.form.get(items)
-            return list.splitlines()
-
-        def cook_time(item):
-            time = request.form.get(item)
-            return int(time)
+        def empty_lines_remove(items):
+            temp_list = request.form.getlist(items)
+            return list(filter(None, temp_list))
 
         if session["user"] == "admin".lower():
             submit = {
                 "category_name": request.form.get("category_name"),
                 "recipe_name": request.form.get("recipe_name"),
                 "recipe_description": request.form.get("recipe_description"),
-                "ingredients": split_list("ingredients"),
-                "method_steps": split_list("method_steps"),
-                "cooking_time": cook_time("cooking_time"),
+                "ingredients": empty_lines_remove("ingredients"),
+                "method_steps": empty_lines_remove("method_steps"),
+                "cooking_time": int(request.form.get("cooking_time")),
                 "image_url": request.form.get("image_url"),
                 "kitchen_tools": request.form.get("kitchen_tools"),
                 "created_by": session["user"]
@@ -192,9 +188,9 @@ def edit_recipe(recipe_id):
                 "category_name": request.form.get("category_name"),
                 "recipe_name": request.form.get("recipe_name"),
                 "recipe_description": request.form.get("recipe_description"),
-                "ingredients": split_list("ingredients"),
-                "method_steps": split_list("method_steps"),
-                "cooking_time": cook_time("cooking_time"),
+                "ingredients": empty_lines_remove("ingredients"),
+                "method_steps": empty_lines_remove("method_steps"),
+                "cooking_time": int(request.form.get("cooking_time")),
                 "image_url": request.form.get("image_url"),
                 "created_by": session["user"]
             }
