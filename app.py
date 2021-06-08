@@ -130,7 +130,8 @@ def logout():
 def add_recipe():
     if request.method == "POST":
         def empty_lines_remove(items):
-            temp_list = request.form.getlist(items)
+            txt = request.form.get(items)
+            temp_list = txt.splitlines()
             return list(filter(None, temp_list))
 
         if session["user"] == "admin".lower():
