@@ -19,6 +19,12 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+def create_array(items):
+    txt = request.form.get(items)
+    temp_list = txt.splitlines()
+    return list(filter(None, temp_list))
+
+
 @app.route("/")
 def index():
     recipes = list(mongo.db.recipes.find())
@@ -129,34 +135,19 @@ def logout():
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
     if request.method == "POST":
-        def empty_lines_remove(items):
-            txt = request.form.get(items)
-            temp_list = txt.splitlines()
-            return list(filter(None, temp_list))
+        recipe = {
+            "category_name": request.form.get("category_name"),
+            "recipe_name": request.form.get("recipe_name"),
+            "recipe_description": request.form.get("recipe_description"),
+            "ingredients": create_array("ingredients"),
+            "method_steps": create_array("method_steps"),
+            "cooking_time": int(request.form.get("cooking_time")),
+            "image_url": request.form.get("image_url"),
+            "kitchen_tools": request.form.get(
+                "kitchen_tools") if session["user"] == "admin".lower() else "",
+            "created_by": session["user"]
+        }
 
-        if session["user"] == "admin".lower():
-            recipe = {
-                "category_name": request.form.get("category_name"),
-                "recipe_name": request.form.get("recipe_name"),
-                "recipe_description": request.form.get("recipe_description"),
-                "ingredients": empty_lines_remove("ingredients"),
-                "method_steps": empty_lines_remove("method_steps"),
-                "cooking_time": int(request.form.get("cooking_time")),
-                "image_url": request.form.get("image_url"),
-                "kitchen_tools": request.form.get("kitchen_tools"),
-                "created_by": session["user"]
-            }
-        else:
-            recipe = {
-                "category_name": request.form.get("category_name"),
-                "recipe_name": request.form.get("recipe_name"),
-                "recipe_description": request.form.get("recipe_description"),
-                "ingredients": empty_lines_remove("ingredients"),
-                "method_steps": empty_lines_remove("method_steps"),
-                "cooking_time": int(request.form.get("cooking_time")),
-                "image_url": request.form.get("image_url"),
-                "created_by": session["user"]
-            }
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe Successfully Added")
         return redirect(url_for("get_recipes"))
@@ -168,37 +159,25 @@ def add_recipe():
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
     if request.method == "POST":
-        def empty_lines_remove(items):
-            temp_list = request.form.getlist(items)
-            return list(filter(None, temp_list))
+        submit = {
+            "category_name": request.form.get("category_name"),
+            "recipe_name": request.form.get("recipe_name"),
+            "recipe_description": request.form.get("recipe_description"),
+            "ingredients": create_array("ingredients"),
+            "method_steps": create_array("method_steps"),
+            "cooking_time": int(request.form.get("cooking_time")),
+            "image_url": request.form.get("image_url"),
+            "kitchen_tools": request.form.get(
+                "kitchen_tools") if session["user"] == "admin".lower() else "",
+            "created_by": session["user"]
+        }
 
-        if session["user"] == "admin".lower():
-            submit = {
-                "category_name": request.form.get("category_name"),
-                "recipe_name": request.form.get("recipe_name"),
-                "recipe_description": request.form.get("recipe_description"),
-                "ingredients": empty_lines_remove("ingredients"),
-                "method_steps": empty_lines_remove("method_steps"),
-                "cooking_time": int(request.form.get("cooking_time")),
-                "image_url": request.form.get("image_url"),
-                "kitchen_tools": request.form.get("kitchen_tools"),
-                "created_by": session["user"]
-            }
-        else:
-            submit = {
-                "category_name": request.form.get("category_name"),
-                "recipe_name": request.form.get("recipe_name"),
-                "recipe_description": request.form.get("recipe_description"),
-                "ingredients": empty_lines_remove("ingredients"),
-                "method_steps": empty_lines_remove("method_steps"),
-                "cooking_time": int(request.form.get("cooking_time")),
-                "image_url": request.form.get("image_url"),
-                "created_by": session["user"]
-            }
         mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
         flash("Recipe Successfully Updated")
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    recipe["ingredients"] = "\n".join(recipe["ingredients"])
+    recipe["method_steps"] = "\n\n".join(recipe["method_steps"])
     food_categories = mongo.db.food_categories.find()
     return render_template(
         "edit_recipe.html", recipe=recipe, food_categories=food_categories)

@@ -46,54 +46,22 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-list-ul prefix teal-text text-darken-4"></i>
-                    {% for ing in recipe.ingredients %}
-                        <textarea id="ingredients" name="ingredients" minlength="5"
-                            maxlength="100" class="materialize-textarea validate" required>
-                        {{- ing -}}
-                        </textarea>
-                    {% endfor %}
+                    <textarea id="ingredients" name="ingredients" minlength="5"
+                        maxlength="1000" class="materialize-textarea validate" required>
+                        {{- recipe.ingredients -}}
+                    </textarea>
                     <label for="ingredients">List your ingredients one in a line</label>
-                    <div class="item-list">
-                        <textarea name="ingredients" maxlength="100"
-                            class="materialize-textarea validate"></textarea>
-                        <textarea name="ingredients" maxlength="100"
-                            class="materialize-textarea validate"></textarea>
-                        <textarea name="ingredients" maxlength="100"
-                            class="materialize-textarea validate"></textarea>
-                        <textarea name="ingredients" maxlength="100"
-                            class="materialize-textarea validate"></textarea>
-                        <textarea name="ingredients" maxlength="100"
-                            class="materialize-textarea validate"></textarea>
-                        <textarea name="ingredients" maxlength="100"
-                            class="materialize-textarea validate"></textarea>
-                    </div>
                 </div>
             </div>
             <!-- Method Steps -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-list-ol prefix teal-text text-darken-4"></i>
-                    {% for step in recipe.method_steps %}
-                        <textarea id="method_steps" name="method_steps" minlength="5"
-                            maxlength="500" class="materialize-textarea validate" required>
-                        {{- step -}}
-                        </textarea>
-                    {% endfor %}
+                    <textarea id="method_steps" name="method_steps" minlength="5"
+                        maxlength="5000" class="materialize-textarea validate" required>
+                        {{- recipe.method_steps -}}
+                    </textarea>
                     <label for="method_steps">List your method steps one in a line</label>
-                    <div class="item-list">
-                        <textarea name="method_steps" maxlength="500"
-                            class="materialize-textarea validate"></textarea>
-                        <textarea name="method_steps" maxlength="500"
-                            class="materialize-textarea validate"></textarea>
-                        <textarea name="method_steps" maxlength="500"
-                            class="materialize-textarea validate"></textarea>
-                        <textarea name="method_steps" maxlength="500"
-                            class="materialize-textarea validate"></textarea>
-                        <textarea name="method_steps" maxlength="500"
-                            class="materialize-textarea validate"></textarea>
-                        <textarea name="method_steps" maxlength="500"
-                            class="materialize-textarea validate"></textarea>
-                    </div>
                 </div>
             </div>
             <!-- Cooking Time -->
