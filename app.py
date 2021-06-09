@@ -21,7 +21,9 @@ mongo = PyMongo(app)
 
 def create_array(items):
     txt = request.form.get(items)
+    # split text into array
     temp_list = txt.splitlines()
+    # returns array, filtered from empty lines
     return list(filter(None, temp_list))
 
 
@@ -31,8 +33,8 @@ def index():
     return render_template("index.html", recipes=recipes)
 
 
-# Next 3 code from Tasks Manager Tutorial, tasks changed to recipes
-@app.route("/get_recipes")
+# Next 2 code from Tasks Manager Tutorial, tasks changed to recipes
+@app.route("/recipes")
 def get_recipes():
     recipes = list(mongo.db.recipes.find())
     return render_template("recipes.html", recipes=recipes)
@@ -45,9 +47,13 @@ def search():
     return render_template("recipes.html", recipes=recipes)
 
 
-@app.route("/get_recipe/<recipe_id>")
+@app.route("/recipe/<recipe_id>/view")
 def get_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    # Pointed by my mentor
+    if not recipe:
+        flash("No recipe found")
+        return redirect(url_for("get_recipes"))
     return render_template("recipe.html", recipe=recipe)
 
 
@@ -132,7 +138,7 @@ def logout():
 
 # Next 2 code from Tasks Manager Tutorial
 # Changed for this project needs
-@app.route("/add_recipe", methods=["GET", "POST"])
+@app.route("/recipe/add", methods=["GET", "POST"])
 def add_recipe():
     if request.method == "POST":
         recipe = {
@@ -156,7 +162,7 @@ def add_recipe():
     return render_template("add_recipe.html", food_categories=food_categories)
 
 
-@app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
+@app.route("/recipe/<recipe_id>/edit", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
     if request.method == "POST":
         submit = {
@@ -176,6 +182,9 @@ def edit_recipe(recipe_id):
         flash("Recipe Successfully Updated")
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    if not recipe:
+        flash("No recipe found")
+        return redirect(url_for("get_recipes"))
     recipe["ingredients"] = "\n".join(recipe["ingredients"])
     recipe["method_steps"] = "\n\n".join(recipe["method_steps"])
     food_categories = mongo.db.food_categories.find()
@@ -185,7 +194,7 @@ def edit_recipe(recipe_id):
 
 # 2 next code from Tasks Manager Tutorial
 # changed in project name and id
-@app.route("/delete_recipe/<recipe_id>")
+@app.route("/recipe/<recipe_id>/delete")
 def delete_recipe(recipe_id):
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     flash("Recipe Successfully Deleted")
