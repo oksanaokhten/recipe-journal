@@ -1,13 +1,13 @@
 function defence() {
     // All following code was taken from w3schools
     // Get the modal
-    var modal = document.getElementById("myModal");
+    let modal = document.getElementById("modal-popup");
 
     // Get the button that opens the modal
-    var btn = document.getElementById("myBtn");
+    let btn = document.getElementById("open-popup");
 
     // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
+    let span = document.getElementById("close-popup");
 
     // When the user clicks on the button, open the modal
     btn.onclick = function() {
