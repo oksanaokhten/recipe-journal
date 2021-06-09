@@ -26,11 +26,10 @@
         <div class="row">
             {% for recipe in recipes %}
                 <div class="col s12 m4">  
-                    <div class="card medium">
+                    <div class="card medium teal darken-1">
                         <div class="card-image">
-                            <!-- Click on image brings to full recipe page -->
                             <a class="cursor" href="{{ url_for('get_recipe', recipe_id=recipe._id) }}">
-                            <img src="{{ recipe.image_url }}" alt="{{ recipe.recipe_name }}">
+                                <img src="{{ recipe.image_url }}" alt="{{ recipe.recipe_name }}">
                             </a>
                         </div>
                         <div class="card-content teal darken-1 white-text text-shadow">
@@ -40,8 +39,8 @@
                                     {{ recipe.recipe_name }}
                                 </a>
                             </span>
-                            <p>Cook: {{ recipe.cooking_time }} min</p><br>
-                            <p><em>by: {{ recipe.created_by }}</em></p><br>
+                            <p>Cooking Time: {{ recipe.cooking_time }} min</p>
+                            <p><em>by: {{ recipe.created_by }}</em></p>
                         </div>
                     </div>
                 </div>
