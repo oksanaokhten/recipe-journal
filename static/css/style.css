@@ -35,6 +35,9 @@ body {
 .item-list {
     padding-left: 42px;
 }
+
+/*----------------------------------------------Home Page*/
+
 .front-text {
     font-size: 50px;
     margin-bottom: 40px;
@@ -47,6 +50,8 @@ body {
 .home-text {
     padding-bottom: 25px;
 }
+
+/*---------------------------------------------- Modal Pop-up*/
 
 /* 4 following code was taken from w3schools */
 /* The Modal (background) */
@@ -85,6 +90,14 @@ body {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+/*---------------------------------------------- Media*/
+
+@media screen and (max-width: 770px) {
+    .front-text {
+        font-size: 30px;
+    }
 }
 
 @media screen and (max-width: 600px) {
