@@ -35,6 +35,18 @@ body {
 .item-list {
     padding-left: 42px;
 }
+.front-text {
+    font-size: 50px;
+    margin-bottom: 40px;
+}
+
+.margin {
+    margin-bottom: 60px;
+}
+
+.home-text {
+    padding-bottom: 25px;
+}
 
 /* 4 following code was taken from w3schools */
 /* The Modal (background) */
@@ -73,6 +85,17 @@ body {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+
+    .front-text {
+        font-size: 20px;
+        margin-bottom: 0;
+    }
+    .margin {
+        margin-bottom: 0;
+    }
 }
 
 @media screen and (max-width: 400px) {
