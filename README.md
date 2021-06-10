@@ -122,9 +122,15 @@ This is the main marketing website for Admin to promote a brand of cooking tools
 
 ## **Credits**
 ### **Code**
+- My project based on Task Management Tutorial. Python, JavaScript, CSS and HTML code was taken from it and changed for my app needs.
+- Materialize HTML, CSS and JavaScript code was used for a modern responsive front-end.
+- A modal popup HTML, CSS and JavaScript code was taken from [W3schools](https://www.w3schools.com/howto/howto_css_modals.asp) and change a bit. 
 
 ### **Content**
-
+- Quote "Eat what makes you happy" were taken from [web card](https://media-cdn.tripadvisor.com/media/photo-s/0f/70/ac/84/eat-what-makes-you-happy.jpg).
+- Footer text from [here](https://www.dvo.com/newsletter/weekly/2018/9-28-369/cooknart10.html) and [here](https://www.saymmm.com/sharemmm.php).
 ### **Media**
-
+- The Front Page Image were obtained from [Unsplash.com](https://unsplash.com/photos/Orz90t6o0e4).
 ### **Acknowledgements**
+- My Mentor for continuous helpful feedback, ideas and support.
+- Tutor support at Code Institute for their support.
