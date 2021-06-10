@@ -47,12 +47,13 @@ This is the main marketing website for Admin to promote a brand of cooking tools
 ### **Languages Used**
 * [HTML5](https://en.wikipedia.org/wiki/HTML5)
 * [CSS3](https://en.wikipedia.org/wiki/CSS)
+* [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
 * [Python](https://wiki.python.org/moin/)
 ### **Frameworks, Libraries & Programs Used**
 1. [Balsamiq](https://balsamiq.com/)
     - Balsamiq was used to design wireframes.
-2. [Bootstrap 4.5.3.](https://getbootstrap.com/)
-    - Bootstrap was used to create responsive, stylish website and to navigate it easly.
+2. [Materialize](https://materializecss.com/)
+    - Materialize was used to create responsive, stylish website and to navigate it easly.
 3. [Google Fonts](https://fonts.google.com/)
     - Google Fonts were used to import chosen fonts into css file.
 4. [Font Awesome](https://fontawesome.com/)
@@ -62,7 +63,11 @@ This is the main marketing website for Admin to promote a brand of cooking tools
 6. [GitHub](https://github.com/)
     - GitHub was used to store all project code with everyday changes.
 7. [jQuery](https://jquery.com/)
-    - jQuery came with Bootstrap to make the navbar responsive but was also used for the smooth scroll function in JavaScript.
+    - jQuery was used with Materialize to make the navbar and other components responsive but was also used for the smooth scroll function in JavaScript.
+7. [Heroku](https://heroku.com/)
+    - Heroku platform was used to deploy, run, and operate app entirely in the cloud.
+7. [MongoDB](https://www.mongodb.com/)
+    - MongoDB was used to keep the project data with easily CRUD access.
 ## **Testing**
 - W3C Markup Validator
 
