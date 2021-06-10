@@ -1,20 +1,33 @@
 # **Recipe Journal App**
-[View the live project here.]()
+[View the live project here.](https://recipe-journal-project.herokuapp.com/)
 
-![Recipe Journal]()
+This is the main marketing website for Admin to promote a brand of cooking tools.
+
+![Recipe Journal](static/images/recipe-journal.png)
 ## **User Experience (UX)**
 * ### **User stories**
     * **First Time Visitor Goals**
+        * As a new visitor, I want to easily understand the purpose of website and see an image, which represents it.
+        * As a new visitor to the website, I want to easily navigate throughout the site to find the content.
+        * As a new visitor, I want to register on site and be a member of community.
+        * As a new visitor, I'd like to be able to add and share recipes.
 
     * **Returning Visitor Goals**
+        * As a returning visitor, I wish to correct my recipes and delete them.
+        * As a returning visitor, I wish to search for certain recipes.
+        * As a returning visitor, I wish to find some tips about cooking tools.
+
        
 * ### **Design**
     * **Colour Scheme**
+        - Two colours used for the site- primary colour is teal, secondary is dark-orange.
         
     * **Typography**
+        - Lato font was used throughout all website with Sans Serif as the fallback font in case chosen fond is not imported correctly. Lato looks attractive and easy to read.
         
     * **Imagery**
-        
+        - The large warm background image is designed to catch the user's eye.
+
 * ### **Wireframes**
     * **Home Page** 
     ![Recipe Journal](static/images/home-no-user.png)
