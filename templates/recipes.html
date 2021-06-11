@@ -21,33 +21,35 @@
             </div>
         </form>
     </div>
-
-    {% if recipes|length > 0 %}
-        <div class="row">
-            {% for recipe in recipes %}
-                <div class="col s12 m4">  
-                    <div class="card medium teal darken-1">
-                        <div class="card-image">
-                            <a class="cursor" href="{{ url_for('get_recipe', recipe_id=recipe._id) }}">
-                                <img src="{{ recipe.image_url }}" alt="{{ recipe.recipe_name }}">
-                            </a>
-                        </div>
-                        <div class="card-content teal darken-1 white-text text-shadow">
-                            <span class="card-title">
-                                <!-- Click on recipe name brings to full recipe page -->
-                                <a class="white-text cursor" href="{{ url_for('get_recipe', recipe_id=recipe._id) }}">
-                                    {{ recipe.recipe_name }}
+    
+    <div class="card-panel">
+        {% if recipes|length > 0 %}
+            <div class="row">
+                {% for recipe in recipes %}
+                    <div class="col s12 m4">  
+                        <div class="card medium teal darken-1">
+                            <div class="card-image">
+                                <a class="cursor" href="{{ url_for('get_recipe', recipe_id=recipe._id) }}">
+                                    <img src="{{ recipe.image_url }}" alt="{{ recipe.recipe_name }}">
                                 </a>
-                            </span>
-                            <p>Cooking Time: {{ recipe.cooking_time }} min</p>
-                            <p><em>by: {{ recipe.created_by }}</em></p>
+                            </div>
+                            <div class="card-content teal darken-1 white-text text-shadow">
+                                <span class="card-title">
+                                    <!-- Click on recipe name brings to full recipe page -->
+                                    <a class="white-text cursor" href="{{ url_for('get_recipe', recipe_id=recipe._id) }}">
+                                        {{ recipe.recipe_name }}
+                                    </a>
+                                </span>
+                                <p>Cooking Time: {{ recipe.cooking_time }} min</p>
+                                <p><em>by: {{ recipe.created_by }}</em></p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            {% endfor %}
-        </div>
-    {% else %}
-        <h3 class="deep-orange-text text-darken-4 center-align">No Results Found</h3>
-    {% endif %}
+                {% endfor %}
+            </div>
+        {% else %}
+            <h3 class="deep-orange-text text-darken-4 center-align">No Results Found</h3>
+        {% endif %}
+    </div>
 
 {% endblock %}
