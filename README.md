@@ -43,6 +43,15 @@ This is the main marketing website for Admin to promote a brand of cooking tools
 ## **Features**
 * **Responsive on all device sizes**
 * **Interactive elements**
+* **Notification system**
+* **Document Management System: CRUD**
+* **Security**
+* **Search options**
+* **Simplicity**
+* **Good image resolution**
+* **Speed**
+* **Flexibility**
+
 ## **Technologies Used**
 ### **Languages Used**
 * [HTML5](https://en.wikipedia.org/wiki/HTML5)
