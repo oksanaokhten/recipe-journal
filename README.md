@@ -1,7 +1,7 @@
 # **Recipe Journal App**
 [View the live project here.](https://recipe-journal-project.herokuapp.com/)
 
-This is the main marketing website for Admin to promote a brand of cooking tools.
+This is a community app for sharing recipes and for owner to promote a e-commerce website with kitchen tools for sale.
 
 ![Recipe Journal](static/images/recipe-journal.png)
 ## **User Experience (UX)**
@@ -23,8 +23,7 @@ This is the main marketing website for Admin to promote a brand of cooking tools
         - Two colours used for the site- primary colour is teal, secondary is dark-orange.
         
     * **Typography**
-        - Lato font was used throughout all website with Sans Serif as the fallback font in case chosen fond is not imported correctly. Lato looks attractive and easy to read.
-        
+        - The Lato and Architects Daughter fonts were used at website with Sans Serif and cursive as the fallback fonts accordingly, in case chosen fonds are not imported correctly. The Lato is the main font, Architects Daughter was used for the headingHero image text. Both of chosen fonts look attractive and easy to read.
     * **Imagery**
         - The large warm background image is designed to catch the user's eye.
 
