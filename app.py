@@ -156,8 +156,6 @@ def add_recipe():
             "method_steps": create_array("method_steps"),
             "cooking_time": int(request.form.get("cooking_time")),
             "image_url": request.form.get("image_url"),
-            "kitchen_tools": request.form.get(
-                "kitchen_tools") if session["user"] == "admin".lower() else "",
             "created_by": session["user"]
         }
 
@@ -183,8 +181,6 @@ def edit_recipe(recipe_id):
             "method_steps": create_array("method_steps"),
             "cooking_time": int(request.form.get("cooking_time")),
             "image_url": request.form.get("image_url"),
-            "kitchen_tools": request.form.get(
-                "kitchen_tools") if session["user"] == "admin".lower() else "",
             "created_by": session["user"]
         }
 

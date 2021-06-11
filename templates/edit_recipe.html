@@ -84,19 +84,6 @@
                     <label for="image_url">Recipe Image (provide web address)</label>
                 </div>
             </div>
-            <!-- Kitchen Tools -->
-            {% if session.user|lower == "admin"|lower %}
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="fas fa-cogs prefix teal-text text-darken-4"></i>
-                        <textarea id="kitchen_tools" name="kitchen_tools" minlength="5"
-                            maxlength="300" class="materialize-textarea validate" required>
-                            {{- recipe.kitchen_tools -}}
-                        </textarea>
-                        <label for="kitchen_tools">Kitchen Tools</label>
-                    </div>
-                </div>
-            {% endif %}
             <!-- Submit Button -->
             <div class="row">
                 <div class="col s12 center-align">
