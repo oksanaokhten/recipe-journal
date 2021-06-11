@@ -80,10 +80,14 @@ This is the main marketing website for Admin to promote a brand of cooking tools
 ## **Testing**
 - W3C Markup Validator
 
-![html-checker]()
+![html-checker](static/images/html-validator.png)
 - W3C CSS Validator
 
+![css-checker](static/images/css-validator.png)
+
 - Lighthouse report
+
+![lighthouse-report](static/images/lighthouse-home.png)
 
 
 ### **Testing User Stories from User Experience (UX) Section**
