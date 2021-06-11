@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Architects+Daughter&display=swap');
 
 body {
     font-family: 'Lato', sans-serif;
@@ -39,6 +39,7 @@ body {
 /*----------------------------------------------Home Page*/
 
 .front-text {
+    font-family: 'Architects Daughter', cursive;
     font-size: 50px;
     margin-bottom: 40px;
 }
