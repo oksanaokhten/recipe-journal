@@ -24,7 +24,7 @@
                 <p>{{ recipe.recipe_description }}</p>
                 <p>Cooking Time: {{ recipe.cooking_time }} min</p>
                 <p>
-                    Cookware, bakeware, kitchen tools, knives & boards on <a href="https://www.thekitchenwhisk.ie/" target="_blank">
+                    Cookware, bakeware, kitchen tools, knives and boards on <a href="https://www.thekitchenwhisk.ie/" target="_blank">
                     The Kitchen Whisk</a>
                 </p>
                 <p><em>by: {{ recipe.created_by }}</em></p>
@@ -40,8 +40,8 @@
             <div class="col s12 m7">
                 <h5>Method</h5>
                 {% for step in recipe.method_steps %}
-                    <ul>Step {{ loop.index }}</ul>
-                    <ul>{{ step }}</ul>
+                    <div>STEP {{ loop.index }}</div>
+                    <div>{{ step }}</div><br>
                 {% endfor %}
             </div>
         </div>
