@@ -143,6 +143,10 @@ def logout():
 # Changed for this project needs
 @app.route("/recipe/add", methods=["GET", "POST"])
 def add_recipe():
+    # was recommended by my mentor to prevent add/edit recipe by not user
+    if not session["user"]:
+        return redirect(url_for("index"))
+
     if request.method == "POST":
         recipe = {
             "category_name": request.form.get("category_name"),
@@ -167,6 +171,9 @@ def add_recipe():
 
 @app.route("/recipe/<recipe_id>/edit", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
+    if not session["user"]:
+        return redirect(url_for("index"))
+
     if request.method == "POST":
         submit = {
             "category_name": request.form.get("category_name"),
@@ -196,9 +203,13 @@ def edit_recipe(recipe_id):
 
 
 # 2 next code from Tasks Manager Tutorial
-# changed in project name and id
+# changed for this project needs
 @app.route("/recipe/<recipe_id>/delete")
 def delete_recipe(recipe_id):
+    # was recommended by my mentor to prevent delete recipe by not user
+    if not session["user"]:
+        return redirect(url_for("index"))
+
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     flash("Recipe Successfully Deleted")
     return redirect(url_for("get_recipes"))
