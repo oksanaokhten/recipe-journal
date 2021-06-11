@@ -30,7 +30,10 @@ def create_array(items):
 @app.route("/")
 def index():
     recipes = list(mongo.db.recipes.find())
-    return render_template("index.html", recipes=recipes)
+    quick_cook_recipes = mongo.db.recipes.find(
+        {"cooking_time": {"$lt": 16}}).limit(3)
+    return render_template(
+        "index.html", recipes=recipes, quick_cook_recipes=quick_cook_recipes)
 
 
 # Next 2 code from Tasks Manager Tutorial, tasks changed to recipes
