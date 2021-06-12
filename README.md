@@ -23,7 +23,7 @@ This is a community app for sharing recipes and for owner to promote a e-commerc
         - Two colours used for the site- primary colour is teal, secondary is dark-orange.
         
     * **Typography**
-        - The Lato and Architects Daughter fonts were used at website with Sans Serif and cursive as the fallback fonts accordingly, in case chosen fonds are not imported correctly. The Lato is the main font, Architects Daughter was used for the headingHero image text. Both of chosen fonts look attractive and easy to read.
+        - The Lato and Architects Daughter fonts were used at website with Sans Serif and cursive as the fallback fonts accordingly, in case chosen fonds are not imported correctly. The Lato is the main font, Architects Daughter was used for Hero image text. Both of chosen fonts look attractive and easy to read.
     * **Imagery**
         - The large warm background image is designed to catch the user's eye.
 
@@ -123,7 +123,7 @@ This is a community app for sharing recipes and for owner to promote a e-commerc
         ![Search](static/images/search.png)
 
     * As a returning visitor, I wish to find some tips about kitchen tools. 
-        - Every recipe contains the advertisement link to website which sale kitchen tools.
+        - Every recipe contains the advertisement link to website which sales kitchen tools.
 
         ![Cooking Tools](static/images/cooking-tools.png)
 
@@ -156,6 +156,28 @@ Margin top of 5px was added to give some space between them.
 
 ## **Deployment**
 ### **Heroku**
+- Before I build my Heroku application, I create some files as requirements.txt, Procfile that Heroku needs to run the app.
+    - pip3 freeze --local > requirements.txt
+    - echo web: python app.py > Procfile
+- Log in on my Heroku dashboard and click
+to 'Create a New App'.
+- Give a unique name to my project, select the closest region(Europe) and click 'Create App'.
+- To connect my app, I setup Automatic Deployment from my GitHub repository:
+    - Click on GitHub icon. When my profile was displayed, add my repository name, then click 'Search'.
+    - Before I click to Enable Automatic Deployment:
+        - Click on the 'Settings' tab for my app 
+        - Click on 'Reveal Config Vars'
+        - Add IP with value of 0.0.0.0
+        - Add PORT, which is 5000
+        - SECRET_KEY with value that copied from env.py file
+        - MONGO_URI string
+        - Back to terminal and add/commit/push requirements.txt and Procfile to GitHub.
+    - Head back over to Heroku, click on 'Enable Automatic Deployment'.
+    - I have only the master branch for the project. so click 'Deploy Branch'.
+    - Heroku will now receive the code from GitHub, and start building the app using a required
+packages.
+    - After a few minutes the message shown "Your app
+was successfully deployed."
 
 ## **Credits**
 ### **Code**
