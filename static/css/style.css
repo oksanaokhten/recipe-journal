@@ -44,6 +44,11 @@ body {
     text-overflow: ellipsis;
 }
 
+.card-img img {
+    height: 240px;
+    object-fit: cover;
+}
+
 .btn-margin {
     margin-top: 5px;
 }
