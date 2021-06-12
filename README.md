@@ -145,15 +145,15 @@ Jinja template with if statement not show Edit and Delete buttons if it not sess
 
 ![small-img](static/images/small-img.png)
 
-Large image looks fine on all devises, except i-Pad:
+- Large image looks fine on all devises, except i-Pad:
 
 ![lg-img](static/images/small-and-large-img.png)
 
-- Search-bar buttons sit on top of each other in i-Pad and i-Phone.
+- Search-bar buttons sit on top of each other in i-Pad and i-Phone. Margin top of 5px was added to give some space between them.
 
 ![search-bar](static/images/search-bar.png)
 
-Margin top of 5px was added to give some space between them.
+- When new recipe is added, it not shown immediately in resently added recipes on home page, only when next is created. 
 
 ## **Deployment**
 ### **Heroku**
