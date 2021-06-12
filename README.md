@@ -1,7 +1,7 @@
 # **Recipe Journal App**
 [View the live project here.](https://recipe-journal-project.herokuapp.com/)
 
-This is a community app for sharing recipes and for owner to promote a e-commerce website with kitchen tools for sale.
+This is a community app for sharing recipes and for owner to promote their e-commerce website with kitchen tools for sale.
 
 ![Recipe Journal](static/images/recipe-journal.png)
 ## **User Experience (UX)**
@@ -43,7 +43,7 @@ This is a community app for sharing recipes and for owner to promote a e-commerc
 * **Responsive on all device sizes**
 * **Interactive elements**
 * **Notification system**
-* **Document Management System: CRUD**
+* **Persistent storage: create, read, update and delete.**
 * **Security**
 * **Search options**
 * **Simplicity**
@@ -150,6 +150,7 @@ Large image looks fine on all devises, except i-Pad:
 ![lg-img](static/images/small-and-large-img.png)
 
 - Search-bar buttons sit on top of each other in i-Pad and i-Phone.
+
 ![search-bar](static/images/search-bar.png)
 
 Margin top of 5px was added to give some space between them.
@@ -169,11 +170,11 @@ to 'Create a New App'.
         - Click on 'Reveal Config Vars'
         - Add IP with value of 0.0.0.0
         - Add PORT, which is 5000
-        - SECRET_KEY with value that copied from env.py file
-        - MONGO_URI string
+        - Add SECRET_KEY with value that copied from env.py file
+        - Add MONGO_URI string
         - Back to terminal and add/commit/push requirements.txt and Procfile to GitHub.
     - Head back over to Heroku, click on 'Enable Automatic Deployment'.
-    - I have only the master branch for the project. so click 'Deploy Branch'.
+    - I have only the master branch for the project, so click 'Deploy Branch'.
     - Heroku will now receive the code from GitHub, and start building the app using a required
 packages.
     - After a few minutes the message shown "Your app
