@@ -157,15 +157,15 @@ Margin top of 5px was added to give some space between them.
 
 ## **Deployment**
 ### **Heroku**
-- Before I build my Heroku application, I create some files as requirements.txt, Procfile that Heroku needs to run the app.
+- Before my Heroku application was built, some files, as requirements.txt, Procfile that Heroku needs to run the app, were created.
     - pip3 freeze --local > requirements.txt
     - echo web: python app.py > Procfile
 - Log in on my Heroku dashboard and click
 to 'Create a New App'.
 - Give a unique name to my project, select the closest region(Europe) and click 'Create App'.
-- To connect my app, I setup Automatic Deployment from my GitHub repository:
+- To connect my app, Automatic Deployment from my GitHub repository was setup:
     - Click on GitHub icon. When my profile was displayed, add my repository name, then click 'Search'.
-    - Before I click to Enable Automatic Deployment:
+    - Before Enable Automatic Deployment:
         - Click on the 'Settings' tab for my app 
         - Click on 'Reveal Config Vars'
         - Add IP with value of 0.0.0.0
@@ -174,9 +174,8 @@ to 'Create a New App'.
         - Add MONGO_URI string
         - Back to terminal and add/commit/push requirements.txt and Procfile to GitHub.
     - Head back over to Heroku, click on 'Enable Automatic Deployment'.
-    - I have only the master branch for the project, so click 'Deploy Branch'.
-    - Heroku will now receive the code from GitHub, and start building the app using a required
-packages.
+    - The project has only master branch, so click 'Deploy Branch'.
+    - Heroku will now receive the code from GitHub, and start building the app using a required packages.
     - After a few minutes the message shown "Your app
 was successfully deployed."
 
