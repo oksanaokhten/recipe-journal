@@ -149,6 +149,8 @@ Jinja template with if statement not show Edit and Delete buttons if it not sess
 
 ![lg-img](static/images/small-and-large-img.png)
 
+- To settle the issue with images, height:240px and object-fit: cover were added to style them.
+
 - Search-bar buttons sit on top of each other in i-Pad and i-Phone. Margin top of 5px was added to give some space between them.
 
 ![search-bar](static/images/search-bar.png)
