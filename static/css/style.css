@@ -44,6 +44,10 @@ body {
     text-overflow: ellipsis;
 }
 
+.btn-margin {
+    margin-top: 5px;
+}
+
 /*----------------------------------------------Home Page*/
 
 /* Push text on the middle of the Hero Image */

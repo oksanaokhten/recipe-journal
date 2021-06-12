@@ -15,7 +15,7 @@ This is a community app for sharing recipes and for owner to promote a e-commerc
     * **Returning Visitor Goals**
         * As a returning visitor, I wish to correct my recipes and delete them.
         * As a returning visitor, I wish to search for certain recipes.
-        * As a returning visitor, I wish to find some tips about cooking tools.
+        * As a returning visitor, I wish to find some tips about kitchen tools.
 
        
 * ### **Design**
@@ -122,13 +122,38 @@ This is a community app for sharing recipes and for owner to promote a e-commerc
 
         ![Search](static/images/search.png)
 
-    * As a returning visitor, I wish to find some tips about cooking tools. 
-        - All recipes created by Admin have some tips and advertisement for cooking tools.
+    * As a returning visitor, I wish to find some tips about kitchen tools. 
+        - Every recipe contains the advertisement link to website which sale kitchen tools.
 
         ![Cooking Tools](static/images/cooking-tools.png)
 
 ### **Further Testing**
+- Tests were done on Google Chrome, inspecting how the site looks on various devises: desktop, laptop, iPad and the range of mobile phones.
+- Many tests were done on adding, editing, deleting and searching recipes.
+- The test for CRUD was done on my Galaxy S10. App operates easily and fast. 
 ### **Known Bugs**
+- The main issue come up on Editor when someone clicks on a recipe, which not created by them.
+
+![issue](static/images/console-error.png)
+![issue](static/images/no-error.png)
+
+Jinja template with if statement not show Edit and Delete buttons if it not session user's recipe. Java script cannot see needed id and gives an error.
+
+![jinja](static/images/jinja.png)
+
+- When small image is upload, recipe card looks different:
+
+![small-img](static/images/small-img.png)
+
+Large image looks fine on all devises, except i-Pad:
+
+![lg-img](static/images/small-and-large-img.png)
+
+- Search-bar buttons sit on top of each other in i-Pad and i-Phone.
+![search-bar](static/images/search-bar.png)
+
+Margin top of 5px was added to give some space between them.
+
 ## **Deployment**
 ### **Heroku**
 
